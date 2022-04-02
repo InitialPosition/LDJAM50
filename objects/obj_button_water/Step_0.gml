@@ -1,0 +1,11 @@
+/// @description Update icon to unavailable if not at water with empty bucket
+
+if !place_meeting(obj_player.x, obj_player.y, obj_trigger_waterbucket) {
+	if image_index == 1 {
+		image_index = 2;
+	}
+} else {
+	if image_index == 2 {
+		image_index = 1;
+	}
+}
