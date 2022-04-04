@@ -22,3 +22,7 @@ function scr_button_find_nearest_tiles(target, amount) {
 	return found_items;
 }
 
+function scr_button_plant_toggle_planting_mode() {
+	obj_gamestate.CURRENT_TURN = !obj_gamestate.CURRENT_TURN;
+}
+

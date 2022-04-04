@@ -2,3 +2,4 @@
 
 scr_gui_update_gui_strings();
 
+str_info = "";

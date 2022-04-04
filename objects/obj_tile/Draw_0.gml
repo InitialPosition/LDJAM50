@@ -2,11 +2,13 @@
 
 draw_self();
 
+if debug {
+	draw_set_font(fnt_tile_info)
+	draw_text(x, y, string(is_occupied))
+	draw_text(x, y + 10, string(plant))
+}
+
 if is_watered {
-	draw_sprite(spr_tile_watered, -1, x - 2, y + 8);
-	
-	draw_set_halign(fa_center);
-	draw_set_font(fnt_tile_info);
-	draw_text(x + 12, y + 12, string(water_counter));
+	draw_sprite(spr_water_indicator, 3 - water_counter, x, y + 16);
 }
 

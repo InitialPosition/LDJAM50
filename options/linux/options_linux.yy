@@ -1,5 +1,5 @@
 {
-  "option_linux_display_name": "LDJAM50",
+  "option_linux_display_name": "Quackenfarm",
   "option_linux_version": "1.0.0.0",
   "option_linux_maintainer_email": "",
   "option_linux_homepage": "https://initialposition.net/",

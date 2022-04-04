@@ -11,7 +11,7 @@ function scr_player_init() {
 	
 	move_cheat_threshold = 2;
 	
-	grid_size = 32;
+	grid_size = 64;
 }
 
 function scr_player_update() {
@@ -84,8 +84,18 @@ function scr_player_update_target_position() {
 		exit;
 	}
 	
+	if obj_gamestate.CURRENT_TURN == 1 {
+		exit;
+	}
+	
+	if !scr_action_has_enough(1) {
+		exit;
+	}
+	
+	obj_gamestate.ACTION_POINTS--;
+	
 	xx = round(clamp((mouse_x - 16), 64, 253) / grid_size) * grid_size;
-	yy = round(clamp((mouse_y - 16), 32, 127) / grid_size) * grid_size;
+	yy = round(clamp((mouse_y - 16), 32, 127) / (grid_size / 2)) * (grid_size / 2);
 	
 	// fix so duck doesnt run over fields
 	yy -= 16;
