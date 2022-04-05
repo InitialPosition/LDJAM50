@@ -12,9 +12,11 @@ if obj_gamestate.CURRENT_TURN == 0 and !instance_exists(obj_gameOver) {
 			var tile = tiles[i];
 			with tile {
 				if is_occupied and sprite_index != spr_tile_grass_dead {
-					plant.visible = false;
-					plant.alarm[1] = 360;
-					plant.alarm[2] = 2;
+					if plant.visible {
+						plant.visible = false;
+						plant.alarm[1] = 360;
+						plant.alarm[2] = 2;
+					}
 					
 					removed_plants++;
 					
