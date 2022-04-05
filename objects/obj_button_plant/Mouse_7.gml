@@ -1,3 +1,4 @@
 /// @description plant action
-
-scr_button_plant_toggle_planting_mode();
+if !instance_exists(obj_gameOver) {
+	scr_button_plant_toggle_planting_mode();
+}

@@ -12,4 +12,4 @@ str_new_game = "NEW GAME";
 str_highscore = "BEST ROUND " + string(highscore);
 str_fullscreen = "TOGGLE FULLSCREEN";
 
-str_version = "1.0.0";
+str_version = "1.0.1";

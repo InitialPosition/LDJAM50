@@ -1,7 +1,7 @@
 /// @description 
 
 if fadeUp {
-	if a < 1 {
+	if a <= 1 {
 		a += 0.01;
 	} else {
 		with obj_particles_general_mainMenu {
@@ -19,9 +19,10 @@ if fadeUp {
 
 	}
 } else {
-	if a > 0 {
+	if a >= 0 {
 		a -= 0.01;
 	} else {
 		instance_destroy();
 	}
 }
+

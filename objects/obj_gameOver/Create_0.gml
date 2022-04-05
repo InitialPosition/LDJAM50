@@ -25,3 +25,9 @@ if local_score > saved_score {
 }
 
 obj_player.locked = true;
+
+audio_stop_all();
+audio_play_sound(snd_gameover, 1, 0);
+
+alarm[0] = 60;
+

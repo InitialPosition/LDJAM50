@@ -1,6 +1,6 @@
 /// @description check that player is next to tile
 
-if obj_gamestate.CURRENT_TURN == 1 {
+if obj_gamestate.CURRENT_TURN == 1 and !instance_exists(obj_gameOver) {
 	var tiles_near = scr_button_find_nearest_tiles(obj_player, 4);
 	
 	tile_is_near = false;
@@ -21,6 +21,11 @@ if obj_gamestate.CURRENT_TURN == 1 {
 	// if we make it here, we are indeed standing next to the tile
 	if !is_occupied {
 		if !scr_action_has_enough(1) {
+			if audio_is_playing(snd_error) {
+				audio_stop_sound(snd_error);
+			}
+			audio_play_sound(snd_error, 1, 0);
+		
 			exit;
 		}
 		obj_gamestate.ACTION_POINTS--;

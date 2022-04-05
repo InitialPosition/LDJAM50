@@ -1,10 +1,17 @@
 /// @description water bucket
+
+if !instance_exists(obj_gameOver) {
 if image_index == 0 {
 	if point_distance(obj_player.x, obj_player.y, obj_player.xx, obj_player.yy) > 10 {
 		exit;
 	}
 	
 	if !scr_action_has_enough(1) {
+		if audio_is_playing(snd_error) {
+			audio_stop_sound(snd_error);
+		}
+		audio_play_sound(snd_error, 1, 0);
+
 		exit;
 	}
 	
@@ -27,6 +34,8 @@ if image_index == 0 {
 	obj_gamestate.CURRENT_TURN = 0;
 	obj_cursor_action.x = x;
 	obj_cursor_action.y = y;
+	
+	obj_gui.str_info = "FILL WATER";
 } else {
 	// empty bucket handling
 
@@ -34,10 +43,12 @@ if image_index == 0 {
 	if place_meeting(obj_player.x, obj_player.y, obj_trigger_waterbucket) and
 	place_meeting(obj_player.xx, obj_player.yy, obj_trigger_waterbucket) {
 		image_index = 0;
+		obj_gui.str_info = "WATER (1AP)";
+		
+		if !audio_is_playing(snd_water) {
+			audio_play_sound(snd_water, 1, 0);
+		}
 	}
-	
-	if !audio_is_playing(snd_water) {
-		audio_play_sound(snd_water, 1, 0);
-	}
+}
 }
 

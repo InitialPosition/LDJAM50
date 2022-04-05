@@ -89,15 +89,28 @@ function scr_player_update_target_position() {
 	}
 	
 	if !scr_action_has_enough(1) {
+		if audio_is_playing(snd_error) {
+			audio_stop_sound(snd_error);
+		}
+		audio_play_sound(snd_error, 1, 0);
+		
 		exit;
 	}
 	
-	obj_gamestate.ACTION_POINTS--;
+	var prev_xx = xx;
+	var prev_yy = yy;
 	
 	xx = round(clamp((mouse_x - 16), 64, 253) / grid_size) * grid_size;
 	yy = round(clamp((mouse_y - 16), 32, 127) / (grid_size / 2)) * (grid_size / 2);
 	
 	// fix so duck doesnt run over fields
 	yy -= 16;
+	
+	// dont deduct action point if we're not moving
+	if xx == prev_xx and yy == prev_yy {
+		exit;
+	}
+	
+	obj_gamestate.ACTION_POINTS--;
 }
 

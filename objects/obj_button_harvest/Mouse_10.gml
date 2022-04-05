@@ -5,5 +5,5 @@ if obj_gamestate.CURRENT_TURN == 0 {
 	obj_cursor_action.y = y;
 }
 
-obj_gui.str_info = "HARVEST";
+obj_gui.str_info = "HARVEST (2AP)";
 
